@@ -20,7 +20,7 @@ class _DespesaListState extends State<DespesaList> {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference? despesasRef;
 
-  String _getCurrency(double value){
+  String _getCurrency(double value) {
     NumberFormat formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
     return formatter.format(value);
   }
@@ -72,7 +72,6 @@ class _DespesaListState extends State<DespesaList> {
 
   @override
   void initState() {
-    
     FirebaseAuth auth = FirebaseAuth.instance;
     User? usuarioLogado = auth.currentUser;
     if (usuarioLogado != null) {
@@ -120,7 +119,8 @@ class _DespesaListState extends State<DespesaList> {
               children: snapshot.data!.docs.map((document) {
                 var doc_id = document.id;
                 var dateTimestamp = document['date'];
-                DateTime timestamp1 = DateTime.fromMicrosecondsSinceEpoch(dateTimestamp.microsecondsSinceEpoch);
+                DateTime timestamp1 = DateTime.fromMicrosecondsSinceEpoch(
+                    dateTimestamp.microsecondsSinceEpoch);
                 //final DateTime date1 = DateTime.fromMillisecondsSinceEpoch(timestamp1);
                 return SingleChildScrollView(
                   child: Center(
@@ -136,7 +136,7 @@ class _DespesaListState extends State<DespesaList> {
                               height: 3,
                             ),
                             Text(
-                              DateFormat('d MMM y')
+                              DateFormat('d MMM y', "pt-BR")
                                   .format(document['date'].toDate()),
                               style: TextStyle(fontSize: 9),
                             ),
@@ -159,7 +159,12 @@ class _DespesaListState extends State<DespesaList> {
                                     document['price'],
                                     timestamp1,
                                   );
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => DespesaFormAlterar(despesa: despesaAlterar)));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              DespesaFormAlterar(
+                                                  despesa: despesaAlterar)));
                                 },
                                 icon: const Icon(
                                   Icons.edit,

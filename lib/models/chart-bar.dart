@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ChartBar extends StatelessWidget {
   const ChartBar({Key? key, this.label, this.value, this.percentage})
@@ -8,13 +9,21 @@ class ChartBar extends StatelessWidget {
   final double? value;
   final double? percentage;
 
+  String _getCurrency(double value) {
+    NumberFormat formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
+    return formatter.format(value);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
           height: 20,
-          child: Text('${value!.toStringAsFixed(2)}', style: TextStyle(fontSize: 11),),
+          child: Text(
+            _getCurrency(value!),
+            style: TextStyle(fontSize: 11),
+          ),
         ),
         const SizedBox(
           height: 5,

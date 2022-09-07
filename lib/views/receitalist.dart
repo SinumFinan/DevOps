@@ -8,7 +8,6 @@ import 'package:sinum_2/views/modal_inclui_despesa.dart';
 import 'package:intl/intl.dart';
 import 'package:sinum_2/views/modal_inclui_receita.dart';
 
-
 class ReceitaList extends StatefulWidget {
   ReceitaList({Key? key}) : super(key: key);
 
@@ -23,11 +22,10 @@ class _ReceitaListState extends State<ReceitaList> {
   FirebaseFirestore db = FirebaseFirestore.instance;
   CollectionReference? receitasRef;
 
-  String _getCurrency(double value){
+  String _getCurrency(double value) {
     NumberFormat formatter = NumberFormat.simpleCurrency(locale: 'pt_BR');
     return formatter.format(value);
   }
-
 
   @override
   void initState() {
@@ -79,7 +77,8 @@ class _ReceitaListState extends State<ReceitaList> {
               children: snapshot.data!.docs.map((document) {
                 var doc_id = document.id;
                 var dateTimestamp = document['date'];
-                DateTime timestamp1 = DateTime.fromMicrosecondsSinceEpoch(dateTimestamp.microsecondsSinceEpoch);
+                DateTime timestamp1 = DateTime.fromMicrosecondsSinceEpoch(
+                    dateTimestamp.microsecondsSinceEpoch);
                 //final DateTime date1 = DateTime.fromMillisecondsSinceEpoch(timestamp1);
                 return SingleChildScrollView(
                   child: Center(
@@ -95,7 +94,7 @@ class _ReceitaListState extends State<ReceitaList> {
                               height: 3,
                             ),
                             Text(
-                              DateFormat('d MMM y')
+                              DateFormat('d MMM y', "pt-BR")
                                   .format(document['date'].toDate()),
                               style: TextStyle(fontSize: 9),
                             ),
@@ -116,7 +115,12 @@ class _ReceitaListState extends State<ReceitaList> {
                                     document['price'].toString(),
                                     timestamp1,
                                   );
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ReceitaFormAlterar(receita: receitaAlterar)));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              ReceitaFormAlterar(
+                                                  receita: receitaAlterar)));
                                 },
                                 icon: const Icon(
                                   Icons.edit,
