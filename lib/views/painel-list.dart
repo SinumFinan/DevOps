@@ -159,77 +159,64 @@ class _PainelListState extends State<PainelList> {
             const SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Card(
-                  color: Colors.amberAccent,
-                  elevation: 6,
-                  margin: const EdgeInsets.all(20),
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          const Text('Total de Despesas do', textAlign: TextAlign.center,),
-                          const Text('seu histórico', textAlign: TextAlign.center,),
-                          const SizedBox(height: 15,),
-                          Text(_getCurrency(_totalDespesa45), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        ],
-                      ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    height: 85,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    color: Colors.purple.shade400,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Text('Total de Despesas', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
+                        SizedBox(height: 8,),
+                        Text(_getCurrency(_totalDespesa45), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                      ],
                     ),
                   ),
-                ),
-                Card(
-                  color: Colors.lightBlueAccent,
-                  elevation: 6,
-                  margin: const EdgeInsets.all(20),
-                  child: Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          const Text('Total de Receitas do', textAlign: TextAlign.center,),
-                          const Text('seu histórico', textAlign: TextAlign.center,),
-                          const SizedBox(height: 15,),
-                          Text(_getCurrency(_totalReceita45), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                        ],
-                      ),
+                  SizedBox(width: 10,),
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    height: 85,
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    color: Colors.lightBlueAccent,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        const Text('Total de Receitas', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
+                        const SizedBox(height: 8,),
+                        Text(_getCurrency(_totalReceita45), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                      ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             const SizedBox(
               height: 20,
             ),
-            Card(
-              color: _saldoGeral >= 0 ? Colors.green : Colors.red,
-              elevation: 6,
-              margin: const EdgeInsets.all(20),
-              child: Column(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: 50,
+                    padding: EdgeInsets.all(5),
+                    height: 85,
                     width: MediaQuery.of(context).size.width * 0.4,
-                    //color: Colors.yellow.shade300,
-                    child: const Center(
-                        child: Text(
-                      'Saldo Geral',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16),
-                    )),
-                  ),
-                  Container(
-                    height: 30,
-                    //color: Colors.yellow.shade300,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    child: Center(
-                        child: Text(
-                      _getCurrency(_saldoGeral),
-                      style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold),
-                    )),
+                    color: _saldoGeral >= 0 ? Colors.green : Colors.red,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Text('Saldo Geral', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
+                          const SizedBox(height: 8,),
+                          Text(_getCurrency(_saldoGeral), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                        ],
+                    ),
                   ),
                 ],
               ),
