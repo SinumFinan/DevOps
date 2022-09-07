@@ -99,7 +99,7 @@ class _PainelListState extends State<PainelList> {
         var listaReceitas = [];
         listaReceitas.add(dados['price']);
         for (var i = 0; i < listaReceitas.length; i++) {
-          _totalReceita += listaReceitas[i];          
+          _totalReceita += listaReceitas[i];
         }
         //print(_totalReceita);
       }
@@ -121,22 +121,23 @@ class _PainelListState extends State<PainelList> {
             dados['title'],
             dados['category'],
             dados['price'],
-            DateTime.fromMicrosecondsSinceEpoch(dados['date'].microsecondsSinceEpoch),
+            DateTime.fromMicrosecondsSinceEpoch(
+                dados['date'].microsecondsSinceEpoch),
           ),
         );
-        //print(_despesasGrafico.elementAt(0).date);        
+        //print(_despesasGrafico.elementAt(0).date);
         for (var i = 0; i < listaDespesas.length; i++) {
-          _totalDespesa += listaDespesas[i];          
+          _totalDespesa += listaDespesas[i];
         }
         //print(_totalDespesa);
       }
-    });    
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    _recuperarDadosUsuario();    
+    _recuperarDadosUsuario();
     //_recuperaReceita();
   }
 
@@ -150,12 +151,13 @@ class _PainelListState extends State<PainelList> {
             const SizedBox(
               height: 20,
             ),
-            Text('Bem vindo(a) $_nomeUsuario'),            
+            Text('Bem vindo(a) $_nomeUsuario'),
             const SizedBox(
               height: 40,
             ),
-            const Text('Despesas da Semana', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
-            Chart(recentDespesas: _recentTransactions),            
+            const Text('Despesas da Semana',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17)),
+            Chart(recentDespesas: _recentTransactions),
             const SizedBox(
               height: 20,
             ),
@@ -165,20 +167,32 @@ class _PainelListState extends State<PainelList> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     height: 85,
                     width: MediaQuery.of(context).size.width * 0.4,
                     color: Colors.purple.shade400,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text('Total de Despesas', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
-                        SizedBox(height: 8,),
-                        Text(_getCurrency(_totalDespesa45), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                        const Text(
+                          'Total de Despesas',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w400),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          _getCurrency(_totalDespesa45),
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(width: 10,),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   Container(
                     padding: EdgeInsets.all(5),
                     height: 85,
@@ -187,9 +201,19 @@ class _PainelListState extends State<PainelList> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const Text('Total de Receitas', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
-                        const SizedBox(height: 8,),
-                        Text(_getCurrency(_totalReceita45), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                        const Text(
+                          'Total de Receitas',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w400),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          _getCurrency(_totalReceita45),
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
                       ],
                     ),
                   ),
@@ -205,17 +229,27 @@ class _PainelListState extends State<PainelList> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     height: 85,
                     width: MediaQuery.of(context).size.width * 0.4,
                     color: _saldoGeral >= 0 ? Colors.green : Colors.red,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Text('Saldo Geral', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),),
-                          const SizedBox(height: 8,),
-                          Text(_getCurrency(_saldoGeral), style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                        ],
+                      children: [
+                        const Text(
+                          'Saldo Geral',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.w400),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          _getCurrency(_saldoGeral),
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
                     ),
                   ),
                 ],

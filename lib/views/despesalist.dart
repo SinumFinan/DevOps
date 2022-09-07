@@ -125,7 +125,7 @@ class _DespesaListState extends State<DespesaList> {
                 return SingleChildScrollView(
                   child: Center(
                     child: Card(
-                      margin: EdgeInsetsDirectional.only(
+                      margin: const EdgeInsetsDirectional.only(
                           start: 5, top: 3, end: 5, bottom: 3),
                       child: ListTile(
                         leading: Column(
@@ -138,7 +138,7 @@ class _DespesaListState extends State<DespesaList> {
                             Text(
                               DateFormat('d MMM y', "pt-BR")
                                   .format(document['date'].toDate()),
-                              style: TextStyle(fontSize: 9),
+                              style: const TextStyle(fontSize: 9),
                             ),
                           ],
                         ), //const Icon(Icons.monetization_on_outlined),

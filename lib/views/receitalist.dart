@@ -4,7 +4,6 @@ import 'package:sinum_2/models/despesa.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sinum_2/models/receita.dart';
 import 'package:sinum_2/views/modal_altera_receita.dart';
-import 'package:sinum_2/views/modal_inclui_despesa.dart';
 import 'package:intl/intl.dart';
 import 'package:sinum_2/views/modal_inclui_receita.dart';
 
@@ -64,7 +63,7 @@ class _ReceitaListState extends State<ReceitaList> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(2),
+        padding: const EdgeInsets.all(2),
         child: StreamBuilder(
           stream: receitasRef!.snapshots(),
           builder: (BuildContext ctx, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -83,7 +82,7 @@ class _ReceitaListState extends State<ReceitaList> {
                 return SingleChildScrollView(
                   child: Center(
                     child: Card(
-                      margin: EdgeInsetsDirectional.only(
+                      margin: const EdgeInsetsDirectional.only(
                           start: 5, top: 3, end: 5, bottom: 3),
                       child: ListTile(
                         leading: Column(
@@ -96,7 +95,7 @@ class _ReceitaListState extends State<ReceitaList> {
                             Text(
                               DateFormat('d MMM y', "pt-BR")
                                   .format(document['date'].toDate()),
-                              style: TextStyle(fontSize: 9),
+                              style: const TextStyle(fontSize: 9),
                             ),
                           ],
                         ), //const Icon(Icons.monetization_on_outlined),
