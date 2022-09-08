@@ -67,114 +67,120 @@ class _DespesaFormAlterarState extends State<DespesaFormAlterar> {
       appBar: AppBar(
         title: const Text('Alterar Despesa'),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        color: Colors.white24,
-        child: Column(
-          children: [
-            TextField(
-              controller: _controllerTitle,
-              autofocus: true,
-              keyboardType: TextInputType.text,
-              decoration: const InputDecoration(
-                contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                labelText: 'Nome',
-                labelStyle: TextStyle(color: Colors.black),
-                //hintText: 'Nome',
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.zero),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            TextField(
-              controller: _controllerCategory,
-              keyboardType: TextInputType.text,
-              decoration: const InputDecoration(
-                contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                labelText: 'Categoria',
-                labelStyle: TextStyle(color: Colors.black),
-                //hintText: 'Categoria',
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.zero),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            TextField(
-              controller: _controllerPrice,
-              decoration: const InputDecoration(
-                contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                labelText: 'Valor',
-                labelStyle: TextStyle(color: Colors.black),
-                hintText: 'Utilizar ponto, ex: R\$ 50.25',
-                hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-                filled: true,
-                fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.zero),
-                prefixText: 'R\$ ',
-                prefixStyle: TextStyle(color: Colors.black),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    const Text(
-                      'Data:',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    Text(
-                      DateFormat('dd-MM-yyyy').format(widget.despesa.date),
-                      //widget.despesa.date.toString(),
-                      style: const TextStyle(fontSize: 16),
-                    ),
-                  ],
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          color: Colors.white24,
+          child: Column(
+            children: [
+              TextField(
+                controller: _controllerTitle,
+                autofocus: true,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                  labelText: 'Nome',
+                  //labelStyle: TextStyle(color: Colors.black),
+                  //hintText: 'Nome',
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(borderRadius: BorderRadius.zero),
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.orangeAccent,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                controller: _controllerCategory,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                  labelText: 'Categoria',
+                  //labelStyle: TextStyle(color: Colors.black),
+                  //hintText: 'Categoria',
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(borderRadius: BorderRadius.zero),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextField(
+                controller: _controllerPrice,
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
+                  labelText: 'Valor',
+                  //labelStyle: TextStyle(color: Colors.black),
+                  hintText: 'Utilizar ponto, ex: R\$ 50.25',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(borderRadius: BorderRadius.zero),
+                  prefixText: 'R\$ ',
+                  prefixStyle: TextStyle(color: Colors.black),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      const Text(
+                        'Data:',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        DateFormat('dd-MM-yyyy').format(widget.despesa.date),
+                        //widget.despesa.date.toString(),
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                    ],
                   ),
-                  onPressed: () {
-                    showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2001),
-                      lastDate: DateTime(2030),
-                    ).then((date) {
-                      setState(() {
-                        widget.despesa.date = date!;
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.orangeAccent,
+                    ),
+                    onPressed: () {
+                      showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2001),
+                        lastDate: DateTime(2030),
+                      ).then((date) {
+                        setState(() {
+                          widget.despesa.date = date!;
+                        });
                       });
-                    });
-                  },
-                  child: const Text('Escolher Data'),
+                    },
+                    child: const Text('Escolher Data'),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(60),                  
                 ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                putDespesa(
-                    _controllerTitle.text,
-                    _controllerCategory.text,
-                    double.parse(_controllerPrice.text),
-                    Timestamp.fromDate(widget.despesa.date));
-                clearFields();
-                Navigator.pop(context);
-              },
-              child: const Text('ALTERAR'),
-            ),
-          ],
+                onPressed: () {
+                  putDespesa(
+                      _controllerTitle.text,
+                      _controllerCategory.text,
+                      double.parse(_controllerPrice.text),
+                      Timestamp.fromDate(widget.despesa.date));
+                  clearFields();
+                  Navigator.pop(context);
+                },
+                child: const Text('ALTERAR', style: TextStyle(fontSize: 20),),
+              ),
+            ],
+          ),
         ),
       ),
     );
