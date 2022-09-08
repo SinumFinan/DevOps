@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.cyan,
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder:
-          OutlineInputBorder(borderSide: const BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(32)),
+          OutlineInputBorder(borderSide: const BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(10)),
           focusedBorder:
-          OutlineInputBorder(borderSide: const BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(32)),
+          OutlineInputBorder(borderSide: const BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(10)),
           hintStyle: const TextStyle(color: Colors.black),
         ),
       ),

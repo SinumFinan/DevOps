@@ -51,7 +51,7 @@ class _ReceitaFormState extends State<ReceitaForm> {
         title: Text('Formulário de Receita'),
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         color: Colors.white24,
         child: Column(
           children: [
@@ -59,43 +59,52 @@ class _ReceitaFormState extends State<ReceitaForm> {
               controller: _controllerTitle,
               autofocus: true,
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Nome',
+                labelText: 'Nome',
+                labelStyle: TextStyle(color: Colors.black),
+                //hintText: 'Nome',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: _controllerCategory,
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Categoria',
+                labelText: 'Categoria',
+                labelStyle: TextStyle(color: Colors.black),
+                //hintText: 'Categoria',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: _controllerPrice,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Valor',
+                labelText: 'Valor',
+                labelStyle: TextStyle(color: Colors.black),
+                hintText: 'Utilizar ponto, ex: R\$ 50.25',
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
+                prefixText: 'R\$ ',
+                prefixStyle: TextStyle(color: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(

@@ -174,7 +174,7 @@ class _CadastroState extends State<Cadastro> {
                     onPrimary: Colors.white,
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(32),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onPressed: () {

@@ -22,7 +22,7 @@ class ChartBar extends StatelessWidget {
           height: 20,
           child: Text(
             _getCurrency(value!),
-            style: TextStyle(fontSize: 11),
+            style: TextStyle(fontSize: 9),
           ),
         ),
         const SizedBox(

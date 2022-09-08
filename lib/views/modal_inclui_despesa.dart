@@ -49,10 +49,10 @@ class _DespesaFormState extends State<DespesaForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Formulário de Despesa'),
+        title: const Text('Formulário de Despesa'),
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         color: Colors.white24,
         child: Column(
           children: [
@@ -60,43 +60,51 @@ class _DespesaFormState extends State<DespesaForm> {
               controller: _controllerTitle,
               autofocus: true,
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Nome',
+                labelText: 'Nome',
+                labelStyle: TextStyle(color: Colors.black),
+                //hintText: 'Nome',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: _controllerCategory,
               keyboardType: TextInputType.text,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Categoria',
+                labelText: 'Categoria',
+                labelStyle: TextStyle(color: Colors.black),
+                //hintText: 'Categoria',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             TextField(
               controller: _controllerPrice,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Valor',
+                labelText: 'Valor',
+                labelStyle: TextStyle(color: Colors.black),
+                hintText: 'Utilizar ponto, ex: R\$ 50.25',
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
+                prefixText: 'R\$ ',
+                prefixStyle: TextStyle(color: Colors.black),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -106,11 +114,11 @@ class _DespesaFormState extends State<DespesaForm> {
                   children: [
                     Text(
                       dataText,
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                     Text(
                       DateFormat('dd-MM-yyyy').format(_dataValue),
-                      style: TextStyle(fontSize: 16),
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
@@ -130,11 +138,11 @@ class _DespesaFormState extends State<DespesaForm> {
                       });
                     });
                   },
-                  child: Text('Escolher Data'),
+                  child: const Text('Escolher Data'),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             ElevatedButton(
@@ -148,7 +156,7 @@ class _DespesaFormState extends State<DespesaForm> {
                 _dataValue = DateTime.now();
                 Navigator.pop(context);
               },
-              child: Text('SALVAR'),
+              child: const Text('SALVAR'),
             ),
           ],
         ),

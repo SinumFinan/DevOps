@@ -78,7 +78,9 @@ class _ReceitaFormAlterarState extends State<ReceitaFormAlterar> {
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Nome',
+                labelText: 'Nome',
+                labelStyle: TextStyle(color: Colors.black),
+                //hintText: 'Nome',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
@@ -92,7 +94,9 @@ class _ReceitaFormAlterarState extends State<ReceitaFormAlterar> {
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Categoria',
+                labelText: 'Categoria',
+                labelStyle: TextStyle(color: Colors.black),
+                //hintText: 'Categoria',
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
@@ -106,10 +110,15 @@ class _ReceitaFormAlterarState extends State<ReceitaFormAlterar> {
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 contentPadding: EdgeInsets.fromLTRB(32, 16, 32, 16),
-                hintText: 'Valor',
+                labelText: 'Valor',
+                labelStyle: TextStyle(color: Colors.black),
+                hintText: 'Utilizar ponto, ex: R\$ 50.25',
+                hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
                 filled: true,
                 fillColor: Colors.white,
                 border: OutlineInputBorder(borderRadius: BorderRadius.zero),
+                prefixText: 'R\$ ',
+                prefixStyle: TextStyle(color: Colors.black),
               ),
             ),
             const SizedBox(
